@@ -23,12 +23,12 @@ def getDetailData(url_detail, name=None ):
         if len(cols) < 2:
             continue
         if len(cols) == 2:
-            f0 = re.sub(r'(\u3000)|(\xa0)', '', re.sub(r'(\t)|(\n)|(\r)', '', cols[0].text))
-            f1 = re.sub(r'(\u3000)|(\xa0)', '', re.sub(r'(\t)|(\n)|(\r)', '', cols[1].text))
+            f0 = re.sub(r"\s+"," ", re.sub(r"^\s+|\s+$", "", re.sub(r'(\u3000)|(\xa0)', '', re.sub(r'(\t)|(\n)|(\r)', '', cols[0].text))))  
+            f1 = re.sub(r"\s+"," ", re.sub(r"^\s+|\s+$", "", re.sub(r'(\u3000)|(\xa0)', '', re.sub(r'(\t)|(\n)|(\r)', '', cols[1].text))))
             data[f0]  = f1
         elif len(cols) == 3:
-            f1 = re.sub(r'(\u3000)|(\xa0)', '', re.sub(r'(\t)|(\n)|(\r)', '', cols[1].text))
-            f2 = re.sub(r'(\u3000)|(\xa0)', '', re.sub(r'(\t)|(\n)|(\r)', '', cols[2].text))
+            f1 = re.sub(r"\s+"," ", re.sub(r"^\s+|\s+$", "", re.sub(r'(\u3000)|(\xa0)', '', re.sub(r'(\t)|(\n)|(\r)', '', cols[1].text))))
+            f2 =re.sub(r"\s+"," ", re.sub(r"^\s+|\s+$", "", re.sub(r'(\u3000)|(\xa0)', '', re.sub(r'(\t)|(\n)|(\r)', '', cols[2].text))))
             data[f1]  = f2
         
     return data
